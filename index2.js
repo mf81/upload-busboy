@@ -2,12 +2,12 @@ const express = require("express");
 const app = express();
 
 const validate = require("express-validation");
-const validation = require("./validation/upload");
+const uploadValidation = require("./validation/upload");
 const upload = require("./middleWare/upload");
 
 app.use(express.json());
 
-app.post("/upload", [validate(validation), upload], (req, res) => {
+app.post("/upload", [validate(uploadValidation), upload], (req, res) => {
   console.log(req.headers);
   res.send("File saved!!!");
 });
